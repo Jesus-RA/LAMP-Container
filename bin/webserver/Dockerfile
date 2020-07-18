@@ -44,6 +44,9 @@ RUN docker-php-ext-install pdo_mysql ; \
     docker-php-ext-install mbstring ; \
     docker-php-ext-install gettext
 
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Install Freetype 
 RUN apt-get -y update ; \
     apt-get --no-install-recommends install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev ; \
