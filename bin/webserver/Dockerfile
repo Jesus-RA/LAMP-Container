@@ -29,6 +29,12 @@ RUN pecl install xdebug-2.7.2 ; \
 RUN pecl install redis-4.0.1 ; \
     docker-php-ext-enable redis
 
+#install some base extensions
+RUN apt-get update && apt-get install -y \
+    zlib1g-dev \
+    libzip-dev \
+    unzip
+
 # Other PHP7 Extensions
 
 RUN docker-php-ext-install pdo_mysql ; \
@@ -39,6 +45,7 @@ RUN docker-php-ext-install pdo_mysql ; \
     docker-php-ext-install xml ; \
     docker-php-ext-install tokenizer ; \
     docker-php-ext-install json ; \
+    docker-php-ext-configure zip --with-libzip ; \
     docker-php-ext-install zip ; \
     docker-php-ext-install -j$(nproc) intl ; \
     docker-php-ext-install mbstring ; \
