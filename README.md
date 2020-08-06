@@ -10,5 +10,5 @@ Con la terminal sobre la carpeta del proyecto poner
 #### Versiones
 
 - mysql:5.5
-- php:7.1-apache-stretch
+- php:7.2-apache-stretch
 - phpMyAdmin
